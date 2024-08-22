@@ -1,51 +1,112 @@
 <x-conteudo title="cadastro">
-    <div class="row margin">
+    <div class="row margin " id="divCadastro">
         <!-- Transaction Form -->
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Cadastrar transações</div>
                 <div class="card-body">
-                    <form>
+
+                    <form action="/cadastro/transacao" method="GET">
                         <div class="mb-3">
                             <label for="valor" class="form-label">Valor</label>
-                            <input type="text" class="form-control" id="valor" placeholder="Valor">
+                            <input type="text" class="form-control inputValor" name="valor" id="valor" label="valor" placeholder="Valor">
                         </div>
                         <div class="mb-3">
                             <label for="descricao" class="form-label">Descrição</label>
-                            <textarea class="form-control" id="descricao" rows="3" placeholder="Descrição"></textarea>
+                            <textarea class="form-control" name="descricao" id="descricao" label="descricao" rows="3" placeholder="Descrição"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-outline-primary">Registrar</button>
+                        <div class="mb-3 div-btn">
+                            <button type="submit" id="bnt-login" class="btn btn-outline-info btn-block">Registrar</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
 
-        <!-- Summary Section -->
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card">
                 <div class="card-header">Resumo</div>
                 <div class="card-body">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <span class="amount negative">- R$46,20</span>
-                            <span>Lorem ipsum dolor sit amet, consectetur</span>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="amount positive">+ R$786,39</span>
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing Duis quam magna,
-                                dignissim quis nunc.</span>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="amount positive">+ R$46,20</span>
-                            <span>Lorem ipsum dolor sit amet, consectetur</span>
-                        </li>
-                    </ul>
+                    <div class="timeline">
+                        @foreach ($listaResumo as $itens)
+                        <div class="timeline-item">
+                            <div class="timeline-icon {{$itens["active"] }}"></div>
+                            <div class="timeline-content">
+                                <span class="amount {{$itens["active"] }}">{{$itens["value"]}}</span>
+                                <p>{{$itens["description"]}}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('divCadastro').classList.add('show');
+            document.getElementById('valor').addEventListener('input', function(e) {
+                let value = e.target.value;
+                value = value.replace(/[^0-9]/g, '');
+                value = (parseFloat(value) / 100).toFixed(2);
+                value = value.replace('.', ',');
+                e.target.value = value;
+            });
+        });
+    </script>
     <style>
+        .timeline {
+            border-left: 2px dotted #d0d0d0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .timeline-icon {
+            width: 10px;
+            height: 10px;
+            background-color: #00bfa5;
+            border-radius: 50%;
+            position: absolute;
+            left: -25px;
+            top: 5px;
+        }
+
+        .timeline-icon.negative {
+            background-color: #f44336;
+        }
+
+        .timeline-content {
+            padding-left: 10px;
+        }
+
+        .amount {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .amount.positive {
+            color: #4caf50;
+        }
+
+        .amount.negative {
+            color: #f44336;
+        }
+
+        #divCadastro {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #divCadastro.show {
+            opacity: 1;
+        }
+
         .sidebar {
             width: min-content;
         }
@@ -53,7 +114,6 @@
         .img-sidebar {
             opacity: 1;
         }
-
 
         body {
             background-color: #e7e7e7;
@@ -74,21 +134,27 @@
             font-weight: bold;
         }
 
-        .list-group-item {
-            display: flex;
-            justify-content: space-between;
+        .btn {
+            font-size: 15px;
+            padding: 10px 100px;
+            border-radius: 20px;
+            color: #000;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+
         }
 
-        .list-group-item .amount {
-            font-weight: bold;
+        .btn:hover {
+            color: aliceblue;
         }
 
-        .negative {
-            color: red;
+        .div-btn {
+            text-align: end;
         }
 
-        .positive {
-            color: green;
+        .inputValor {
+            width: auto;
         }
     </style>
 </x-conteudo>

@@ -24,10 +24,10 @@
             </ul>
         </div>
         <div class="col-2 arrow_right">
-        <a href="/login">
+        <a href="logout">
                 <img class="" src="img/arrow_right_in.png" alt="arrow_right_in">
             </a>
-            
+
         </div>
     </div>
 </header>

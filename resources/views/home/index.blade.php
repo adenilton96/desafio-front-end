@@ -8,28 +8,27 @@
     </body>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            setTimeout(function () {
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
                 document.querySelector('.amimacao-sidebar').style.width = '130px';
             }, 500);
-            setTimeout(function () {
+            setTimeout(function() {
                 var elements = document.querySelectorAll('.img-sidebar');
-                elements.forEach(function (element) {
+                elements.forEach(function(element) {
                     element.classList.add('animacao');
                 });
 
                 var elements = document.querySelectorAll('body');
-                elements.forEach(function (element) {
+                elements.forEach(function(element) {
                     element.style.backgroundColor = '#e7e7e7';
                 });
 
                 var elements = document.querySelectorAll('.esconder');
-                elements.forEach(function (element) {
-                    element.classList.remove('esconder'); 
+                elements.forEach(function(element) {
+                    element.classList.remove('esconder');
                 });
             }, 2000);
         });
-
     </script>
 
     <style scoped>

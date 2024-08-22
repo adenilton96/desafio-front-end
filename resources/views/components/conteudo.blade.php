@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -29,8 +29,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>

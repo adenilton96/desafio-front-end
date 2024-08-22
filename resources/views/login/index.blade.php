@@ -10,7 +10,7 @@
     <style scoped>
         @font-face {
             font-family: 'Roboto';
-            src: url('{{ asset('fonts/Roboto-LightItalic') }}') format('truetype');
+            src: url('{{ asset(' fonts/Roboto-LightItalic') }}') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -58,10 +58,15 @@
         }
 
         .btn:hover {
-                color: aliceblue;
-            }
+            color: aliceblue;
+        }
+
+        #divErro {
+            color: red;
+        }
+
     </style>
-    </head>
+</head>
 
 <body>
     <div class="container-fluid">
@@ -74,17 +79,23 @@
                         <h4>BOOOL</h4>
                     </div>
                     <div class="">
-                        <h1>Olá!</h1>
-                        <p>Entre com seu login e senha para começar.</p>
-                        <form  action="/login/authorizationLogin" method="post">
+                        <div id="divErro" hidden>
+                            <h1>Ops,</h1>
+                            <p>Invalid username or password!</p>
+                        </div>
+                        <div id="divCetro">
+                            <h1>Olá!</h1>
+                            <p>Entre com seu login e senha para começar.</p>
+                        </div>
+                        <form action="/login/authorizationLogin" method="GET">
                             <div class="form-group">
                                 <!--componente input -->
-                                <x-input type="text" name="username" id="username" label="Username" value="{{ old('username') }}"
+                                <x-input type="text" name="username" id="username" label="Username" value="{{old('username') }}"
                                     placeholder="Enter your username" />
                             </div>
                             <div class="form-group">
                                 <!--componente input -->
-                                <x-input type="password" name="password" id="password" label="Password" value="{{ old('Password') }}"
+                                <x-input type="password" name="password" id="password" label="Password" value="{{old('Password') }}"
                                     placeholder="Enter your username" />
                             </div>
                             <button type="submit" id="bnt-login" class="btn btn-outline-info btn-block">Entrar</button>
@@ -101,11 +112,3 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-           
-    });
-
-</script>
-
