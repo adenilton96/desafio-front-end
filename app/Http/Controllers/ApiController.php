@@ -20,12 +20,13 @@ class ApiController extends Controller
 
     private function sendRequest($method, $endpoint, $data = [], $headers = [])
     {
-        $response = Http::withHeaders($headers)->$method($this->url . $endpoint, $data);
+        $response = Http::withHeaders($headers)
+            ->withoutVerifying() // Ignora a verificação do certificado SSL
+            ->$method($this->url . $endpoint, $data);
 
         if ($response->successful()) {
             return $response->json();
         } else {
-            // Optionally log error details
             return false;
         }
     }

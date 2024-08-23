@@ -39,8 +39,14 @@ Este projeto é uma aplicação web desenvolvida com Laravel, um framework PHP, 
 
     ```bash
     php artisan key:generate
+  
 
-5. **Inicie o servidor de desenvolvimento**
+5. **migrate**
+
+    ```bash
+    php artisan migrate
+
+6. **Inicie o servidor de desenvolvimento**
     
     ```bash
     php artisan serve
