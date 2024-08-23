@@ -13,8 +13,7 @@ class LoginController extends Controller
     {
         $this->apiController = $apiController;
     }
-
-    public function index(Request $request)
+        public function index(Request $request)
     {
         if ($this->hasValidSession()) {
             return redirect()->route('home');
@@ -23,6 +22,7 @@ class LoginController extends Controller
         return view('login.index');
     }
 
+    //verifica ser ja esta logado
     private function hasValidSession()
     {
         $token = session('token');

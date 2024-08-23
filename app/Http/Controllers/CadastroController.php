@@ -25,6 +25,7 @@ class CadastroController extends Controller
         return view("components.cadastro", ['listaResumo' => $resposta]);
     }
 
+    //verifica ser ja esta logado
     private function hasValidSession()
     {
         $token = session('token');

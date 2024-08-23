@@ -8,6 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style scoped>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #6f6f6f;
+        }
+
         .menuTop {
             background-color: #f8f9fa;
             height: 90px;
@@ -19,9 +24,10 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
-            <x-sidebar ></x-sidebar>
+            <!-- componente do menu lateral -->
+            <x-sidebar></x-sidebar>
             <div class="col-10">
+                 <!-- componente do header -->
                 <x-header title="{{$title}}"></x-header>
                 <!-- comteudo -->
                 <div class="col-md-11 content">
@@ -34,4 +40,5 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

@@ -1,3 +1,4 @@
+<!-- componente do menu lateral  -->
 <div class=" sidebar amimacao-sidebar" style="margin-left: inherit;">
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
         <li class="nav-item">

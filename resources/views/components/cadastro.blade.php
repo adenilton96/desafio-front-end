@@ -1,3 +1,4 @@
+<!-- o <x-conteudo carrega um componente de acordo com o blade -->
 <x-conteudo title="cadastro">
     <div class="row margin " id="divCadastro">
         <!-- Transaction Form -->
@@ -28,6 +29,7 @@
                 <div class="card-header">Resumo</div>
                 <div class="card-body">
                     <div class="timeline">
+                        <!-- abistração do bale para faciliatar a escrita de codigas php no html -->
                         @foreach ($listaResumo as $itens)
                         <div class="timeline-item">
                             <div class="timeline-icon {{$itens["active"] }}"></div>

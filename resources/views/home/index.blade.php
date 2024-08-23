@@ -1,5 +1,4 @@
 <x-conteudo title="Home">
-
     <body>
         <div class="welcome-container esconder">
             <h1>Bem-vindo</h1>

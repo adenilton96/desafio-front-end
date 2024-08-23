@@ -1,3 +1,4 @@
+<!-- componente para inpute generico -->
 <div class="div-input">
     <input name="{{ $name }}" id="{{ $id }}" autocomplete="off" required />
     <label for="{{ $id }}">

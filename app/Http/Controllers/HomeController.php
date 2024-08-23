@@ -8,12 +8,19 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        if (!session('token') || session('token') == '') {
+        if (!$this->hasValidSession()) {
             return redirect()->route('login');
         }
+
         return view("home.index");
     }
 
+    //verifica ser ja esta logado
+    private function hasValidSession()
+    {
+        $token = session('token');
+        return $token && $token !== '';
+    }
 
 }
 

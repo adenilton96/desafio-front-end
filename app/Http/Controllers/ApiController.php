@@ -18,6 +18,7 @@ class ApiController extends Controller
         $this->tokenSession = session('token');
     }
 
+    // metodo para chamar api
     private function sendRequest($method, $endpoint, $data = [], $headers = [])
     {
         $response = Http::withHeaders($headers)
@@ -51,7 +52,7 @@ class ApiController extends Controller
         $endpoint = '/transaction/list';
         $headers = [
             "Authorization" => $this->tokenSession,
-            "User-Agent" => "insomnia/9.3.3"
+
         ];
 
         return $this->sendRequest('get', $endpoint, [], $headers);
@@ -63,7 +64,6 @@ class ApiController extends Controller
         $headers = [
             "Authorization" => $this->tokenSession,
             "Content-Type" => "application/json",
-            "User-Agent" => "insomnia/9.3.3"
         ];
         $data = [
             "value" => $valor,
